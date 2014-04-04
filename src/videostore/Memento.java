@@ -1,14 +1,14 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package videostore;
+
+import java.io.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
  * @author Harshil
  */
-public class Memento {
+public class Memento{
     private Inventory inventory;
     
     public Memento (Inventory inventory)
@@ -20,4 +20,6 @@ public class Memento {
     {
         return inventory;
     }
+    
+    
 }

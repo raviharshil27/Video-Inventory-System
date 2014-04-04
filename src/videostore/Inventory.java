@@ -4,6 +4,7 @@
  */
 package videostore;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -12,7 +13,7 @@ import java.util.List;
  *
  * @author Harshil
  */
-public class Inventory {
+public class Inventory  implements Serializable{
 //    private List<Movie> movieInventory = new ArrayList<>();
     private HashMap<Integer,Movie> idToMovie = new HashMap<>();
     private HashMap<String,Movie> nameToMovie = new HashMap<>();

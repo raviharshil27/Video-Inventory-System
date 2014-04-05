@@ -4,10 +4,14 @@
  */
 package videostore;
 
-import java.io.Serializable;
+import com.command.Command;
+import com.command.addMovie;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -18,6 +22,8 @@ public class Inventory  implements Serializable{
     private HashMap<Integer,Movie> idToMovie = new HashMap<>();
     private HashMap<String,Movie> nameToMovie = new HashMap<>();
     
+    
+   
     public static void main(String args[])
     {
         Inventory inbentory = new  Inventory();
@@ -33,6 +39,8 @@ public class Inventory  implements Serializable{
         Movie movie = new Movie(movieName, price, quantity);
         idToMovie.put(movie.movieId, movie);
         nameToMovie.put(movieName, movie);
+        Command command = new addMovie(movieName, price, quantity);
+        
     }
     
     public void sell(String movieName,int quantity)

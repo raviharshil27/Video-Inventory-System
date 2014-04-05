@@ -1,11 +1,13 @@
 
 package videostore;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Harshil
  */
-public class Movie {
+public class Movie implements Serializable{
     
     protected String name;
     private static int uniqueCounter=0;

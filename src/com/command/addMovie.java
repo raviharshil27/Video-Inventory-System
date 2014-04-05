@@ -30,35 +30,5 @@ public class addMovie extends Command{
     public void execute(Inventory inventory) {
         inventory.addNewMovie(name, price, quantity);
     }
-
-    
-    @Override
-    public boolean write(String filePath) {
-        FileOutputStream fileOut = null;
-        ObjectOutputStream out =null;
-        
-        try {
-            fileOut =new FileOutputStream(filePath + File.separator + "command.data");
-            out = new ObjectOutputStream(fileOut);
-            out.writeObject(this);
-            
-        } catch (IOException ex) {
-            Logger.getLogger(Memento.class.getName()).log(Level.SEVERE, null, ex);
-            return false;
-        }
-        finally
-        {
-            try {
-                out.close();
-                fileOut.close();
-            } catch (IOException ex) {
-                Logger.getLogger(CareTaker.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            
-        }
-        return true;
-       
-    }
-    
     
 }

@@ -11,6 +11,7 @@ import videostore.AbstractInventory;
 import videostore.CareTaker;
 import videostore.Inventory;
 import videostore.Memento;
+import videostore.NoHeaderObjectOutputStream;
 
 /**
  *
@@ -24,9 +25,22 @@ public abstract class Command implements Serializable{
         ObjectOutputStream out =null;
         
         try {
-            fileOut =new FileOutputStream(filePath + File.separator + "command.data", true);
-            out = new ObjectOutputStream(fileOut);
+//            fileOut =new FileOutputStream(filePath + File.separator + "command.data", true);
+//            out = new ObjectOutputStream(fileOut);
+            File commandFile = new File(filePath + File.separator + "command.data");
+            if(commandFile.exists())
+            {
+                fileOut =new FileOutputStream(filePath + File.separator + "command.data", true);
+                out = new NoHeaderObjectOutputStream(fileOut);
+            }
+            else
+            {
+                fileOut =new FileOutputStream(filePath + File.separator + "command.data");
+                out = new ObjectOutputStream(fileOut);
+            }
             out.writeObject(this);
+            
+            
             System.out.println("Command written..."+ this);
         } catch (IOException ex) {
             Logger.getLogger(Memento.class.getName()).log(Level.SEVERE, null, ex);

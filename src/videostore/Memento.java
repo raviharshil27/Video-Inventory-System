@@ -10,7 +10,7 @@ import java.util.logging.Logger;
  */
 public class Memento implements Serializable{
     private Inventory inventory;
-    
+    private long serialVersionUID = 1L;
     public Memento (Inventory inventory)
     {
         this.inventory = inventory;

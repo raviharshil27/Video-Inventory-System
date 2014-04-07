@@ -3,9 +3,6 @@
  * and open the template in the editor.
  */
 package videostore;
-
-
-
 /**
  *
  * @author Harshil
@@ -31,7 +28,4 @@ public class Originator {
    public void getInventoryFromMemento(Memento Memento){
       inventory = Memento.getInventory();
    }
-   
-    
-   
 }

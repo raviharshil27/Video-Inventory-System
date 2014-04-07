@@ -10,27 +10,36 @@ import java.io.Serializable;
 public class Movie implements Serializable{
     
     protected String name;
-    private static int uniqueCounter=0;
+//    private static int uniqueCounter=0;
     protected int movieId;
     protected float price;
     protected int quantity=0;
     
-    public Movie(String name,float price)
-    {
-        this.name = name;
-        this.price = price;
-        movieId = uniqueCounter;
-        uniqueCounter++;
-    }
-    
-    public Movie(String name,float price,int quantity)
+    public Movie(int movieId, String name,float price,int quantity)
     {
         this.name = name;
         this.price = price;
         this.quantity = quantity;
-        movieId = uniqueCounter;
-        uniqueCounter++;
+        this.movieId = movieId;
+//        uniqueCounter++;
     }
+    
+//    public Movie(String name,float price)
+//    {
+//        this.name = name;
+//        this.price = price;
+//        movieId = uniqueCounter;
+//        uniqueCounter++;
+//    }
+//    
+//    public Movie(String name,float price,int quantity)
+//    {
+//        this.name = name;
+//        this.price = price;
+//        this.quantity = quantity;
+//        movieId = uniqueCounter;
+//        uniqueCounter++;
+//    }
     
     public void decreaseQuantity(int count)
     {

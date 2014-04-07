@@ -4,8 +4,7 @@
  */
 package com.command;
 
-import videostore.Inventory;
-
+import videostore.*;
 /**
  *
  * @author Harshil
@@ -20,7 +19,7 @@ public class sellMovie extends Command{
     }
 
     @Override
-    public void execute(Inventory inventory) {
+    public void execute(AbstractInventory inventory) {
         inventory.sell(movieName, quantity);
     }
 

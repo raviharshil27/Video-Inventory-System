@@ -62,7 +62,7 @@ public class CareTaker {
             fileRead =new FileInputStream(filePath+ File.separator + "Memento.data");
             input = new ObjectInputStream(fileRead);
             memento= (Memento) input.readObject();
-            
+            add(memento);
         } catch (Exception ex) {
             Logger.getLogger(Memento.class.getName()).log(Level.SEVERE, null, ex);
             //return false;

@@ -16,12 +16,13 @@ import java.util.logging.Logger;
  *
  * @author Harshil
  */
-public class Inventory  implements Serializable{
+public class Inventory extends AbstractInventory implements Serializable{
 //    private List<Movie> movieInventory = new ArrayList<>();
     private HashMap<Integer,Movie> idToMovie = new HashMap<>();
     private HashMap<String,Movie> nameToMovie = new HashMap<>();
-    
-    
+    private static int uniqueCounter=0;
+    private static final long serialVersionUID = -4800495704707931382L;
+
    
     public static void main(String args[])
     {
@@ -30,58 +31,66 @@ public class Inventory  implements Serializable{
         inbentory.sell("asd", 2);
         System.out.println(inbentory.getId("asd") +"--"+ inbentory.getQuantity("asd"));
         System.out.print(inbentory.getQuantity(0));
-                
     }
     
+    @Override
     public void addNewMovie(String movieName,float price,int quantity)
     {
-        Movie movie = new Movie(movieName, price, quantity);
+        uniqueCounter++;
+        Movie movie = new Movie(uniqueCounter,movieName, price, quantity);
         idToMovie.put(movie.movieId, movie);
         nameToMovie.put(movieName, movie);
-        Command command = new addMovie(movieName, price, quantity);
+//        Command command = new addMovie(movieName, price, quantity);
         System.out.println();
     }
     
+    @Override
     public void sell(String movieName,int quantity)
     {
         Movie movie = nameToMovie.get(movieName);
         movie.decreaseQuantity(2);
-        Command command = new sellMovie(movieName, quantity);
+//        Command command = new sellMovie(movieName, quantity);
     }
     
+    @Override
     public void updateQuantity(String movieName,int quantity)
     {
         Movie movie = nameToMovie.get(movieName);
         movie.increaseQuantity(2);   
-        Command command = new updateQuantity(movieName, quantity);
+//        Command command = new updateQuantity(movieName, quantity);
 
     }
     
+    @Override
     public void updatePrice(String movieName, float price)
     {
        Movie movie = nameToMovie.get(movieName);
        movie.updatePrice(price);
-       Command command = new updatePrice(movieName, price);
+//       Command command = new updatePrice(movieName, price);
     }
     
+    @Override
     public float getPrice(String movieName)
     {
         float price =0;
         return price;
     }
     
+    @Override
     public float getPrice(int movieId)
     {
         float price =0;
         return price;
     }
     
+    @Override
     public int getQuantity(String movieName)
     {
         int quantity=0;
         return quantity;
     }
     
+    @Override
     public int getQuantity(int movieId)
     {
         int quantity=0;

@@ -7,6 +7,7 @@ package com.command;
 import java.io.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import videostore.AbstractInventory;
 import videostore.CareTaker;
 import videostore.Inventory;
 import videostore.Memento;
@@ -16,7 +17,7 @@ import videostore.Memento;
  * @author Harshil
  */
 public abstract class Command implements Serializable{
-    public abstract void execute(Inventory inventory);
+    public abstract void execute(AbstractInventory inventory);
 //    public abstract boolean write(String file);
     public boolean write(String filePath) {
         FileOutputStream fileOut = null;
@@ -42,7 +43,6 @@ public abstract class Command implements Serializable{
             
         }
         return true;
-       
     }
     
     

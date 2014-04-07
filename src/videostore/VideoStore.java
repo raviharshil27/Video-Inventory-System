@@ -13,9 +13,6 @@ import java.util.List;
  */
 public class VideoStore {
 
-    
-    
-    
     public static void main(String[] args) {
         
 //         CareTaker careTaker= new CareTaker();
@@ -41,5 +38,16 @@ public class VideoStore {
         System.out.println(inventory.getId("ironman2") +"--"+ inventory.getQuantity("ironman2"));
         System.out.print(inventory.getQuantity(0));
        
+    }
+    
+    public void restoreInventory()
+    {
+        CareTaker careTaker= new CareTaker();
+        Memento memento = careTaker.read("C:\\Users\\Harshil.Harshil-PC\\Documents\\NetBeansProjects\\VideoStore");
+//        Originator originator = new  Originator();
+//        originator.getInventoryFromMemento(memento);
+        
+//        memento.getInventory().getId("ironman2");
+        
     }
 }

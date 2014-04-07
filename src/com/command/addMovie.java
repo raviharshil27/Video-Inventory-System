@@ -7,6 +7,7 @@ package com.command;
 import java.io.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import videostore.AbstractInventory;
 import videostore.CareTaker;
 import videostore.Inventory;
 import videostore.Memento;
@@ -19,6 +20,8 @@ public class addMovie extends Command{
     private String name;
     private float price;
     private int quantity;
+    
+    
     public addMovie(String name,float price,int quantity)
     {
         this.name= name;
@@ -27,7 +30,7 @@ public class addMovie extends Command{
         write("C:\\Users\\Harshil.Harshil-PC\\Documents\\NetBeansProjects\\VideoStore\\data");
     }
     @Override
-    public void execute(Inventory inventory) {
+    public void execute(AbstractInventory inventory) {
         inventory.addNewMovie(name, price, quantity);
     }
     

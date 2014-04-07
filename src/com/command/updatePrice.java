@@ -4,6 +4,7 @@
  */
 package com.command;
 
+import videostore.AbstractInventory;
 import videostore.Inventory;
 
 /**
@@ -21,7 +22,7 @@ public class updatePrice extends Command{
 
     
     @Override
-    public void execute(Inventory inventory) {
+    public void execute(AbstractInventory inventory) {
         inventory.updatePrice(movieName, price);
     }
     

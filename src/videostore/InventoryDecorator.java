@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package videostore;
 
 import com.command.*;
@@ -22,11 +18,10 @@ public class InventoryDecorator extends AbstractInventoryDecorator{
     public static void main(String args[])
     {
         InventoryDecorator decorator = new InventoryDecorator();
-         decorator.addNewMovie("ironman1", 22, 2);
-        decorator.addNewMovie("ironman2", 22, 2);
-        decorator.addNewMovie("ironman3", 22, 2);
-        
-        
+//         decorator.addNewMovie("ironman1", 22, 2);
+//        decorator.addNewMovie("ironman2", 22, 2);
+//        decorator.addNewMovie("ironman3", 22, 2);
+        System.out.println(decorator);
     }
     public InventoryDecorator() {
         inventory = new Inventory();
@@ -42,7 +37,9 @@ public class InventoryDecorator extends AbstractInventoryDecorator{
              CareTaker careTaker= new CareTaker();
              Memento memento = careTaker.read("C:\\Users\\Harshil.Harshil-PC\\Documents\\NetBeansProjects\\VideoStore\\data");
              inventory=memento.getInventory();
+             inventory = new Inventory();
              executeCommands();
+             
              System.out.println("Commands Restored From the file... and file removed...");
         }
 //        else
@@ -55,13 +52,19 @@ public class InventoryDecorator extends AbstractInventoryDecorator{
     {
         FileInputStream fileRead = null;
         ObjectInputStream input =null;
-        String filePath = "C:\\Users\\Harshil.Harshil-PC\\Documents\\NetBeansProjects\\VideoStore";
+        String filePath = "C:\\Users\\Harshil.Harshil-PC\\Documents\\NetBeansProjects\\VideoStore\\data";
         Command command;
         try {
             fileRead =new FileInputStream(filePath+ File.separator + "command.data");
             input = new ObjectInputStream(fileRead);
-            command= (Command) input.readObject();
+            while( (command= (Command) input.readObject()) != null)
+            {
+           
+//            command= (Command) input.readObject();
+//            command= (Command) input.readObject();
             command.execute(inventory);
+            
+            }
             
         } catch (Exception ex) {
             Logger.getLogger(Memento.class.getName()).log(Level.SEVERE, null, ex);

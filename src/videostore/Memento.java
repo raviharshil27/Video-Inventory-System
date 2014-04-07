@@ -10,7 +10,7 @@ import java.util.logging.Logger;
  */
 public class Memento implements Serializable{
     private Inventory inventory;
-    private long serialVersionUID = 1L;
+    
     public Memento (Inventory inventory)
     {
         this.inventory = inventory;
@@ -34,7 +34,7 @@ public class Memento implements Serializable{
 //            /serializeToOutputStream(inventory, bos);
             byte[] bytes = bos.toByteArray();
             ois = new ObjectInputStream(new ByteArrayInputStream(bytes));
-            //Deserialize it and return the new instance
+//            Deserialize it and return the new instance
             //return clonnedInventory;
             clonnedInventory = (Inventory) ois.readObject();
         } catch (Exception ex) {

@@ -41,7 +41,7 @@ public class Inventory extends AbstractInventory implements Serializable{
         idToMovie.put(movie.movieId, movie);
         nameToMovie.put(movieName, movie);
 //        Command command = new addMovie(movieName, price, quantity);
-        System.out.println();
+//        System.out.println();
     }
     
     @Override

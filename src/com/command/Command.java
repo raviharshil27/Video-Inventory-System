@@ -27,7 +27,7 @@ public abstract class Command implements Serializable{
             fileOut =new FileOutputStream(filePath + File.separator + "command.data", true);
             out = new ObjectOutputStream(fileOut);
             out.writeObject(this);
-            
+            System.out.println("Command written..."+ this);
         } catch (IOException ex) {
             Logger.getLogger(Memento.class.getName()).log(Level.SEVERE, null, ex);
             return false;

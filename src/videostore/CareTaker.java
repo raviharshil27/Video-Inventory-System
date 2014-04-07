@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package videostore;
 
 import java.io.*;
@@ -50,6 +46,8 @@ public class CareTaker {
             }
             
         }
+        File commandFile = new File(filePath+File.separator + "command.data");
+        commandFile.deleteOnExit();
         return true;
     }
    

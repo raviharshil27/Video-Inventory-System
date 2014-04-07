@@ -4,13 +4,7 @@
  */
 package com.command;
 
-import java.io.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import videostore.AbstractInventory;
-import videostore.CareTaker;
-import videostore.Inventory;
-import videostore.Memento;
 
 /**
  *

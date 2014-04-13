@@ -9,14 +9,14 @@ import java.util.logging.Logger;
  * @author Harshil
  */
 public class Memento implements Serializable{
-    private Inventory inventory;
+    private AbstractInventory inventory;
     
-    public Memento (Inventory inventory)
+    public Memento (AbstractInventory inventory)
     {
         this.inventory = inventory;
     }
     
-    public Inventory getInventory()
+    public AbstractInventory getInventory()
     {
         return inventory;
     }

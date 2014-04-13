@@ -8,7 +8,7 @@ package videostore;
  * @author Harshil
  */
 public class Originator {
-    private Inventory inventory;
+    private AbstractInventory inventory;
     
     
     public void setInventory(Inventory inventory)
@@ -16,7 +16,7 @@ public class Originator {
         this.inventory=inventory;
     }
     
-    public Inventory getInventory()
+    public AbstractInventory getInventory()
     {
         return inventory;
     }

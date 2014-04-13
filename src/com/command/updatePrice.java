@@ -18,6 +18,7 @@ public class updatePrice extends Command{
     public updatePrice(String movieName, float price) {
         this.movieName= movieName;
         this.price = price;
+        write("C:\\Users\\Harshil.Harshil-PC\\Documents\\NetBeansProjects\\VideoStore\\data");
     }
 
     

@@ -19,6 +19,7 @@ public class updateQuantity extends Command{
     public updateQuantity(String movieName, int quantity) {
         this.movieName= movieName;
         this.quantity = quantity;
+        write("C:\\Users\\Harshil.Harshil-PC\\Documents\\NetBeansProjects\\VideoStore\\data");
     }
 
     

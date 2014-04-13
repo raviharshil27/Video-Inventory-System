@@ -59,5 +59,10 @@ public abstract class Command implements Serializable{
         return true;
     }
     
+//    public static void deleteFile(String path)
+//    {
+//        
+//    }
+    
     
 }

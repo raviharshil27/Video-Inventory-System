@@ -16,6 +16,7 @@ public class sellMovie extends Command{
     public sellMovie(String movieName, int quantity) {
         this.movieName= movieName;
         this.quantity = quantity;
+        write("C:\\Users\\Harshil.Harshil-PC\\Documents\\NetBeansProjects\\VideoStore\\data");
     }
 
     @Override

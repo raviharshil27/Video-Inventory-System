@@ -6,11 +6,16 @@
         <group>
             <file>file:/C:/Users/Harshil.Harshil-PC/Documents/NetBeansProjects/VideoStore/src/videostore/Memento.java</file>
             <file>file:/C:/Users/Harshil.Harshil-PC/Documents/NetBeansProjects/VideoStore/src/videostore/CareTaker.java</file>
+            <file>file:/C:/Users/Harshil.Harshil-PC/Documents/NetBeansProjects/VideoStore/src/videostore/Originator.java</file>
             <file>file:/C:/Users/Harshil.Harshil-PC/Documents/NetBeansProjects/VideoStore/src/videostore/AbstractInventory.java</file>
             <file>file:/C:/Users/Harshil.Harshil-PC/Documents/NetBeansProjects/VideoStore/src/com/command/addMovie.java</file>
+            <file>file:/C:/Users/Harshil.Harshil-PC/Documents/NetBeansProjects/VideoStore/src/videostore/VideoStore.java</file>
+            <file>file:/C:/Users/Harshil.Harshil-PC/Documents/NetBeansProjects/VideoStore/src/videostore/NoHeaderObjectOutputStream.java</file>
             <file>file:/C:/Users/Harshil.Harshil-PC/Documents/NetBeansProjects/VideoStore/src/videostore/InventoryDecorator.java</file>
+            <file>file:/C:/Users/Harshil.Harshil-PC/Documents/NetBeansProjects/VideoStore/src/com/command/sellMovie.java</file>
             <file>file:/C:/Users/Harshil.Harshil-PC/Documents/NetBeansProjects/VideoStore/src/videostore/Inventory.java</file>
             <file>file:/C:/Users/Harshil.Harshil-PC/Documents/NetBeansProjects/VideoStore/src/com/command/Command.java</file>
+            <file>file:/C:/Users/Harshil.Harshil-PC/Documents/NetBeansProjects/VideoStore/src/videostore/AbstractInventoryDecorator.java</file>
         </group>
     </open-files>
 </project-private>

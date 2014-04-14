@@ -11,6 +11,8 @@ import java.util.logging.Logger;
 public class Memento implements Serializable{
     private AbstractInventory inventory;
     
+    public Memento(){}
+    
     public Memento (AbstractInventory inventory)
     {
         this.inventory = inventory;

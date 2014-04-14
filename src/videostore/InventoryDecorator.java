@@ -1,7 +1,7 @@
 package videostore;
 
 import com.command.*;
-import com.command.addMovie;
+import com.command.AddNewMovie;
 import java.io.EOFException;
 import java.io.File;
 import java.io.FileInputStream;
@@ -23,7 +23,7 @@ public class InventoryDecorator extends AbstractInventoryDecorator {
 //        decorator.addNewMovie("ironman1", 22, 2);
 //        decorator.addNewMovie("ironman2", 22, 2);
 //        decorator.addNewMovie("ironman3", 22, 2);
-//        decorator.careTaker.add(decorator.saveInventoryToMemento());
+//        decorator.careTaker.set(decorator.saveInventoryToMemento());
 //        decorator.careTaker.write("C:\\Users\\Harshil.Harshil-PC\\Documents\\NetBeansProjects\\VideoStore\\data");
        
 //        decorator.addNewMovie("ironman4", 22, 2);
@@ -94,7 +94,7 @@ public class InventoryDecorator extends AbstractInventoryDecorator {
         }
         File commandFile = new File(filePath+File.separator + "command.data");
         commandFile.deleteOnExit();
-          careTaker.add(saveInventoryToMemento());
+          careTaker.set(saveInventoryToMemento());
           careTaker.write("C:\\Users\\Harshil.Harshil-PC\\Documents\\NetBeansProjects\\VideoStore\\data");
 //                
     }
@@ -109,7 +109,7 @@ public class InventoryDecorator extends AbstractInventoryDecorator {
         commandCounter++;
         if(commandCounter==3)
         {
-           careTaker.add(saveInventoryToMemento());
+           careTaker.set(saveInventoryToMemento());
            careTaker.write("C:\\Users\\Harshil.Harshil-PC\\Documents\\NetBeansProjects\\VideoStore\\data");
            commandCounter=0;
         }
@@ -117,28 +117,28 @@ public class InventoryDecorator extends AbstractInventoryDecorator {
     
     @Override
     public void addNewMovie(String movieName, float price, int quantity) {
-        Command command = new addMovie(movieName, price, quantity);
+        Command command = new AddNewMovie(movieName, price, quantity);
         command.execute(inventory);
         checkCommandCounter();
     }
 
     @Override
     public void sell(String movieName, int quantity) {
-        Command command = new sellMovie(movieName, quantity);
+        Command command = new SellMovie(movieName, quantity);
         command.execute(inventory);
         checkCommandCounter();
     }
 
     @Override
-    public void updateQuantity(String movieName, int quantity) {
-        Command command = new updateQuantity(movieName, quantity);
+    public void increaseQuantity(String movieName, int quantity) {
+        Command command = new UpdateQuantity(movieName, quantity);
         command.execute(inventory);
         checkCommandCounter();
     }
 
     @Override
     public void updatePrice(String movieName, float price) {
-        Command command = new updatePrice(movieName, price);
+        Command command = new UpdatePrice(movieName, price);
         command.execute(inventory);
         checkCommandCounter();        
        

@@ -30,7 +30,7 @@ public class VideoStore {
         originator.setInventory(inventory);
         
         CareTaker careTaker= new CareTaker();
-        careTaker.add(originator.saveInventoryToMemento());
+        careTaker.set(originator.saveInventoryToMemento());
         careTaker.write("C:\\Users\\Harshil.Harshil-PC\\Documents\\NetBeansProjects\\VideoStore\\data");
         Memento m = careTaker.read("C:\\Users\\Harshil.Harshil-PC\\Documents\\NetBeansProjects\\VideoStore\\data");
         m.getInventory().getId("ironman2");

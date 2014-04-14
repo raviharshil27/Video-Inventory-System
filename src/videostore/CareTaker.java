@@ -12,15 +12,15 @@ import java.util.logging.Logger;
  * @author Harshil
  */
 public class CareTaker {
-    private List<Memento> mementoList = new ArrayList<>();
+    private Memento currentMemento = new Memento();
     
-    public void add(Memento state){
+    public void set(Memento state){
       
-      mementoList.add(state.clone());
+      currentMemento=state.clone();
    }
 
-   public Memento get(int index){
-      return mementoList.get(index);
+   public Memento get(){
+      return currentMemento;
    }
    
    public boolean write(String filePath)
@@ -29,12 +29,12 @@ public class CareTaker {
         File destinationFile = new File(filePath + File.separator +  "Memento.data.old");
         FileOutputStream fileOut = null;
         ObjectOutputStream out =null;
-        Memento memento = mementoList.get(mementoList.size()-1);
+//        Memento memento = currentMemento;
         try {
             copyFile(sourceFile, destinationFile);
             fileOut =new FileOutputStream(filePath + File.separator + "Memento.data");
             out = new ObjectOutputStream(fileOut);
-            out.writeObject(memento);
+            out.writeObject(currentMemento);
             out.close();
             fileOut.close();
         } catch (IOException ex) {
@@ -74,12 +74,11 @@ public class CareTaker {
     {
         FileInputStream fileRead = null;
         ObjectInputStream input =null;
-        Memento memento = null;
+//        Memento memento = null;
         try {
             fileRead =new FileInputStream(filePath+ File.separator + "Memento.data");
             input = new ObjectInputStream(fileRead);
-            memento= (Memento) input.readObject();
-            add(memento);
+            currentMemento= (Memento) input.readObject();
         } catch (Exception ex) {
             Logger.getLogger(Memento.class.getName()).log(Level.SEVERE, null, ex);
             //return false;
@@ -93,7 +92,7 @@ public class CareTaker {
                 Logger.getLogger(Memento.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-        return memento;
+        return currentMemento;
     }
     
 }

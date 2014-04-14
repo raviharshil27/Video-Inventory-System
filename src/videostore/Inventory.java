@@ -56,11 +56,11 @@ public class Inventory extends AbstractInventory implements Serializable{
     }
     
     @Override
-    public void updateQuantity(String movieName,int quantity)
+    public void increaseQuantity(String movieName,int quantity)
     {
         Movie movie = movieNameMap.get(movieName);
-        movie.increaseQuantity(2);   
-//        Command command = new updateQuantity(movieName, quantity);
+        movie.increaseQuantity(quantity);   
+//        Command command = new increaseQuantity(movieName, quantity);
 
     }
     

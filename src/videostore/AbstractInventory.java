@@ -13,7 +13,7 @@ public abstract class AbstractInventory {
 
     public abstract void sell(String movieName, int quantity);
 
-    public abstract void updateQuantity(String movieName, int quantity);
+    public abstract void increaseQuantity(String movieName, int quantity);
 
     public abstract void updatePrice(String movieName, float price);
 

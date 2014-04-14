@@ -4,28 +4,26 @@
  */
 package com.command;
 
-import videostore.AbstractInventory;
-
+import videostore.*;
 /**
  *
  * @author Harshil
  */
-public class addMovie extends Command{
-    private String name;
-    private float price;
+public class SellMovie extends Command{
+
+    private String movieName;
     private int quantity;
-    
-    
-    public addMovie(String name,float price,int quantity)
-    {
-        this.name= name;
-        this.price = price;
+    public SellMovie(String movieName, int quantity) {
+        this.movieName= movieName;
         this.quantity = quantity;
         write("C:\\Users\\Harshil.Harshil-PC\\Documents\\NetBeansProjects\\VideoStore\\data");
     }
+
     @Override
     public void execute(AbstractInventory inventory) {
-        inventory.addNewMovie(name, price, quantity);
+        inventory.sell(movieName, quantity);
     }
+
+   
     
 }

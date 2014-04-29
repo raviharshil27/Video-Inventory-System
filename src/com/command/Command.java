@@ -1,68 +1,71 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.command;
 
 import java.io.*;
+import java.nio.channels.FileChannel;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import videostore.AbstractInventory;
-import videostore.CareTaker;
-import videostore.Inventory;
-import videostore.Memento;
-import videostore.NoHeaderObjectOutputStream;
+import videostore.*;
 
 /**
  *
  * @author Harshil
  */
-public abstract class Command implements Serializable{
+public abstract class Command implements Serializable {
+
     public abstract void execute(AbstractInventory inventory);
-//    public abstract boolean write(String file);
+
     public boolean write(String filePath) {
         FileOutputStream fileOut = null;
-        ObjectOutputStream out =null;
-        
-        try {
-//            fileOut =new FileOutputStream(filePath + File.separator + "command.data", true);
-//            out = new ObjectOutputStream(fileOut);
-            File commandFile = new File(filePath + File.separator + "command.data");
-            if(commandFile.exists())
+        ObjectOutputStream out = null;
+        File commandFile = null;
+        File temporaryFile = null;
+        try 
+        {
+            commandFile = new File(filePath + File.separator + "Command.data");
+            temporaryFile = new File(filePath + File.separator + "Command.data.old");
+            copyFile(commandFile, temporaryFile);
+            if (commandFile.exists())
             {
-                fileOut =new FileOutputStream(filePath + File.separator + "command.data", true);
+                fileOut = new FileOutputStream(filePath + File.separator + "Command.data", true);
                 out = new NoHeaderObjectOutputStream(fileOut);
-            }
-            else
+            } 
+            else 
             {
-                fileOut =new FileOutputStream(filePath + File.separator + "command.data");
+                fileOut = new FileOutputStream(filePath + File.separator + "Command.data");
                 out = new ObjectOutputStream(fileOut);
             }
             out.writeObject(this);
-            
-            
-            System.out.println("Command written..."+ this);
-        } catch (IOException ex) {
-            Logger.getLogger(Memento.class.getName()).log(Level.SEVERE, null, ex);
+            out.close();
+            fileOut.close();
+        } 
+        catch (IOException ex) {
+            copyFile(temporaryFile, commandFile);
             return false;
-        }
-        finally
-        {
-            try {
-                out.close();
-                fileOut.close();
-            } catch (IOException ex) {
-                Logger.getLogger(CareTaker.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            
+        } 
+        finally {
+            temporaryFile.delete();
         }
         return true;
     }
-    
-//    public static void deleteFile(String path)
-//    {
-//        
-//    }
-    
-    
+
+    private void copyFile(File sourceFile, File destFile) {
+        if (sourceFile.exists() && destFile.exists())
+        {
+            try 
+            {
+                FileChannel source = new FileInputStream(sourceFile).getChannel();
+                FileChannel destination = new FileOutputStream(destFile).getChannel();
+                destination.transferFrom(source, 0, source.size());
+                source.close();
+                destination.close();
+            } 
+            catch (FileNotFoundException ex) {
+                Logger.getLogger(CareTaker.class.getName()).log(Level.SEVERE, null, ex);
+            } 
+            catch (IOException ex) {
+                Logger.getLogger(CareTaker.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }
 }

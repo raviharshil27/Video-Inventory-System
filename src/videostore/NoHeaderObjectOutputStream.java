@@ -8,13 +8,14 @@ import java.io.OutputStream;
  *
  * @author Harshil
  */
-public class NoHeaderObjectOutputStream extends ObjectOutputStream{
+public class NoHeaderObjectOutputStream extends ObjectOutputStream {
+
     public NoHeaderObjectOutputStream(OutputStream os) throws IOException {
-		super(os);
-	}
+        super(os);
+    }
 
     @Override
-	protected void writeStreamHeader() {
-	}
-    
+    protected void writeStreamHeader() {
+    }
+
 }

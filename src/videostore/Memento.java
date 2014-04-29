@@ -8,49 +8,46 @@ import java.util.logging.Logger;
  *
  * @author Harshil
  */
-public class Memento implements Serializable{
+public class Memento implements Serializable {
+
     private AbstractInventory inventory;
-    
-    public Memento(){}
-    
-    public Memento (AbstractInventory inventory)
-    {
+
+    public Memento() {
+    }
+
+    public Memento(AbstractInventory inventory) {
         this.inventory = inventory;
     }
-    
-    public AbstractInventory getInventory()
-    {
+
+    public AbstractInventory getInventory() {
         return inventory;
     }
-    
-     @Override
-    public Memento clone()
-    {
+
+    @Override
+    public Memento clone() {
         Inventory clonnedInventory = new Inventory();
-         ObjectInputStream ois = null;
-        try {
+        ObjectInputStream ois = null;
+        try 
+        {
             ByteArrayOutputStream bos = new ByteArrayOutputStream();
-            //Serialize it
             ObjectOutputStream o = new ObjectOutputStream(bos);
             o.writeObject(inventory);
-//            /serializeToOutputStream(inventory, bos);
             byte[] bytes = bos.toByteArray();
             ois = new ObjectInputStream(new ByteArrayInputStream(bytes));
-//            Deserialize it and return the new instance
-            //return clonnedInventory;
             clonnedInventory = (Inventory) ois.readObject();
-        } catch (Exception ex) {
+        } 
+        catch (Exception ex) {
             Logger.getLogger(Inventory.class.getName()).log(Level.SEVERE, null, ex);
-        } finally {
+        } 
+        finally {
             try {
                 ois.close();
-            } catch (IOException ex) {
+            } 
+            catch (IOException ex) {
                 Logger.getLogger(Inventory.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-           return new Memento(clonnedInventory);
-
+        return new Memento(clonnedInventory);
     }
-    
-    
+
 }

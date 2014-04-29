@@ -4,16 +4,20 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Harshil.Harshil-PC/Documents/NetBeansProjects/VideoStore/test/com/test/InventoryDecoratorTest.java</file>
             <file>file:/C:/Users/Harshil.Harshil-PC/Documents/NetBeansProjects/VideoStore/src/videostore/Memento.java</file>
             <file>file:/C:/Users/Harshil.Harshil-PC/Documents/NetBeansProjects/VideoStore/src/videostore/CareTaker.java</file>
-            <file>file:/C:/Users/Harshil.Harshil-PC/Documents/NetBeansProjects/VideoStore/src/videostore/Originator.java</file>
-            <file>file:/C:/Users/Harshil.Harshil-PC/Documents/NetBeansProjects/VideoStore/src/com/command/addMovie.java</file>
-            <file>file:/C:/Users/Harshil.Harshil-PC/Documents/NetBeansProjects/VideoStore/src/videostore/VideoStore.java</file>
             <file>file:/C:/Users/Harshil.Harshil-PC/Documents/NetBeansProjects/VideoStore/src/videostore/InventoryDecorator.java</file>
-            <file>file:/C:/Users/Harshil.Harshil-PC/Documents/NetBeansProjects/VideoStore/src/videostore/Inventory.java</file>
             <file>file:/C:/Users/Harshil.Harshil-PC/Documents/NetBeansProjects/VideoStore/src/com/command/Command.java</file>
+            <file>file:/C:/Users/Harshil.Harshil-PC/Documents/NetBeansProjects/VideoStore/test/com/test/CommandTest.java</file>
+            <file>file:/C:/Users/Harshil.Harshil-PC/Documents/NetBeansProjects/VideoStore/src/com/command/AddNewMovie.java</file>
             <file>file:/C:/Users/Harshil.Harshil-PC/Documents/NetBeansProjects/VideoStore/src/videostore/AbstractInventoryDecorator.java</file>
+            <file>file:/C:/Users/Harshil.Harshil-PC/Documents/NetBeansProjects/VideoStore/test/com/test/InventoryDecoratorTest.java</file>
+            <file>file:/C:/Users/Harshil.Harshil-PC/Documents/NetBeansProjects/VideoStore/src/com/command/SellMovie.java</file>
+            <file>file:/C:/Users/Harshil.Harshil-PC/Documents/NetBeansProjects/VideoStore/src/com/command/UpdatePrice.java</file>
+            <file>file:/C:/Users/Harshil.Harshil-PC/Documents/NetBeansProjects/VideoStore/src/videostore/AbstractInventory.java</file>
+            <file>file:/C:/Users/Harshil.Harshil-PC/Documents/NetBeansProjects/VideoStore/src/videostore/Inventory.java</file>
+            <file>file:/C:/Users/Harshil.Harshil-PC/Documents/NetBeansProjects/VideoStore/src/com/command/UpdateQuantity.java</file>
+            <file>file:/C:/Users/Harshil.Harshil-PC/Documents/NetBeansProjects/VideoStore/src/videostore/Movie.java</file>
         </group>
     </open-files>
 </project-private>

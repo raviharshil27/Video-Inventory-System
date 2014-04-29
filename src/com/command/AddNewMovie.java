@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.command;
 
 import videostore.AbstractInventory;
@@ -15,13 +11,12 @@ public class AddNewMovie extends Command{
     private float price;
     private int quantity;
     
-    
     public AddNewMovie(String name,float price,int quantity)
     {
         this.name= name;
         this.price = price;
         this.quantity = quantity;
-        write("C:\\Users\\Harshil.Harshil-PC\\Documents\\NetBeansProjects\\VideoStore\\data");
+        write(".");
     }
     @Override
     public void execute(AbstractInventory inventory) {

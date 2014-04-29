@@ -1,17 +1,18 @@
 package com.command;
 
-import videostore.*;
+import videostore.AbstractInventory;
+import videostore.Inventory;
 
 /**
  *
  * @author Harshil
  */
-public class SellMovie extends Command {
+public class UpdateQuantity extends Command {
 
     private String movieName;
     private int quantity;
 
-    public SellMovie(String movieName, int quantity) {
+    public UpdateQuantity(String movieName, int quantity) {
         this.movieName = movieName;
         this.quantity = quantity;
         write(".");
@@ -19,7 +20,7 @@ public class SellMovie extends Command {
 
     @Override
     public void execute(AbstractInventory inventory) {
-        inventory.sell(movieName, quantity);
+        inventory.increaseQuantity(movieName, quantity);
     }
 
 }

@@ -16,22 +16,8 @@ import java.util.logging.Logger;
  */
 public class InventoryDecorator extends AbstractInventoryDecorator {
 
-        private static int commandCounter=0;
-        private CareTaker careTaker = new CareTaker();
-    public static void main(String args[]) {
-        InventoryDecorator decorator = new InventoryDecorator();
-//        decorator.addNewMovie("ironman1", 22, 2);
-//        decorator.addNewMovie("ironman2", 22, 2);
-//        decorator.addNewMovie("ironman3", 22, 2);
-//        decorator.careTaker.set(decorator.saveInventoryToMemento());
-//        decorator.careTaker.write("C:\\Users\\Harshil.Harshil-PC\\Documents\\NetBeansProjects\\VideoStore\\data");
-       
-//        decorator.addNewMovie("ironman4", 22, 2);
-//        decorator.addNewMovie("ironman5", 22, 2);
-//        decorator.addNewMovie("ironman6", 22, 2);
-        
-        System.out.println(decorator);
-    }
+    private static int commandCounter = 0;
+    private CareTaker careTaker = new CareTaker();
 
     public InventoryDecorator() {
         inventory = new Inventory();
@@ -40,51 +26,44 @@ public class InventoryDecorator extends AbstractInventoryDecorator {
 
     private void restoreInventory() {
 
-        File commandFile = new File("C:\\Users\\Harshil.Harshil-PC\\Documents\\NetBeansProjects\\VideoStore\\data\\command.data");
+        File commandFile = new File("command.data");
         if (commandFile.exists()) {
-            restoreMemento("C:\\Users\\Harshil.Harshil-PC\\Documents\\NetBeansProjects\\VideoStore\\data");
-//            inventory = new Inventory();
+            restoreMemento(".");
             executeCommands();
-            System.out.println("Commands Restored From the file... and file removed...");
         }
     }
 
-    private void restoreMemento(String inputFile)
-    {
-//        CareTaker careTaker = new CareTaker();
+    private void restoreMemento(String inputFile) {
         File mementoFile = new File(inputFile + File.separator + "Memento.data");
-        if(mementoFile.exists())
+        if (mementoFile.exists()) 
         {
-        Memento memento = careTaker.read(inputFile);
-        inventory = memento.getInventory();
-        }
-        else
+            Memento memento = careTaker.read();
+            inventory = memento.getInventory();
+        } 
+        else {
             inventory = new Inventory();
+        }
     }
-        
-    public void executeCommands() {
+
+    private void executeCommands() {
         FileInputStream fileRead = null;
         ObjectInputStream input = null;
-        String filePath = "C:\\Users\\Harshil.Harshil-PC\\Documents\\NetBeansProjects\\VideoStore\\data";
+        String filePath = ".";
         Command command;
         try {
-            fileRead = new FileInputStream(filePath + File.separator + "command.data");
+            fileRead = new FileInputStream(filePath + File.separator + "Command.data");
             input = new ObjectInputStream(fileRead);
             while ((command = (Command) input.readObject()) != null) {
-
-//            command= (Command) input.readObject();
-//            command= (Command) input.readObject();
                 command.execute(inventory);
-
             }
-
-        } catch (EOFException ex) {
-//            Logger.getLogger(Memento.class.getName()).log(Level.SEVERE, null, ex);
-            System.out.println("End of command file with eofexception...Command Read successfully.....");
-            //return false;
-        } catch (IOException | ClassNotFoundException ex) {
+        } 
+        catch (EOFException ex) {
+        } 
+        catch (IOException | ClassNotFoundException ex ) {
             Logger.getLogger(InventoryDecorator.class.getName()).log(Level.SEVERE, null, ex);
-        } finally {
+        } 
+        finally 
+        {
             try {
                 input.close();
                 fileRead.close();
@@ -92,29 +71,25 @@ public class InventoryDecorator extends AbstractInventoryDecorator {
                 Logger.getLogger(Memento.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-        File commandFile = new File(filePath+File.separator + "command.data");
+        File commandFile = new File(filePath + File.separator + "command.data");
         commandFile.deleteOnExit();
-          careTaker.set(saveInventoryToMemento());
-          careTaker.write("C:\\Users\\Harshil.Harshil-PC\\Documents\\NetBeansProjects\\VideoStore\\data");
-//                
+        careTaker.set(saveInventoryToMemento());
+        careTaker.write();
     }
 
-    public Memento saveInventoryToMemento()
-    {
-      return new Memento(inventory);
+    public Memento saveInventoryToMemento() {
+        return new Memento(inventory);
     }
-    
-    private void checkCommandCounter()
-    {
+
+    private void checkCommandCounter() {
         commandCounter++;
-        if(commandCounter==3)
-        {
-           careTaker.set(saveInventoryToMemento());
-           careTaker.write("C:\\Users\\Harshil.Harshil-PC\\Documents\\NetBeansProjects\\VideoStore\\data");
-           commandCounter=0;
+        if (commandCounter == 3) {
+            careTaker.set(saveInventoryToMemento());
+            careTaker.write();
+            commandCounter = 0;
         }
     }
-    
+
     @Override
     public void addNewMovie(String movieName, float price, int quantity) {
         Command command = new AddNewMovie(movieName, price, quantity);
@@ -140,7 +115,6 @@ public class InventoryDecorator extends AbstractInventoryDecorator {
     public void updatePrice(String movieName, float price) {
         Command command = new UpdatePrice(movieName, price);
         command.execute(inventory);
-        checkCommandCounter();        
-       
+        checkCommandCounter();
     }
 }

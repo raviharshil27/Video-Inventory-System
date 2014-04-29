@@ -1,16 +1,13 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package videostore;
 
 /**
  *
  * @author Harshil
  */
-public abstract class AbstractInventoryDecorator extends AbstractInventory{
+public abstract class AbstractInventoryDecorator extends AbstractInventory {
+
     protected AbstractInventory inventory;
-    
+
     @Override
     public float getPrice(String movieName) {
         return inventory.getPrice(movieName);
